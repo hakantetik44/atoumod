@@ -16,7 +16,6 @@ public class DriverMobile {
 
     private DriverMobile() {
     }
-
     private static UiAutomator2Options options;
     private static XCUITestOptions iosOptions;
 
@@ -28,8 +27,8 @@ public class DriverMobile {
             switch (ConfigReader.getProperty("platformName")) {
                 case "Android":
                     options = new UiAutomator2Options()
-                            .setAppPackage("com.nomad.atoumod.staging")
-                            .setAppActivity("com.nomad.atoumod.MainActivity")
+                            .setAppPackage("com.ornikar.learning")
+                            .setAppActivity("com.ornikar.learning.MainActivity")
                             .setDeviceName("Pixel")
                             .setAutomationName("uiautomator2")
                             .setNoReset(false)

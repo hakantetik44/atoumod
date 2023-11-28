@@ -7,16 +7,13 @@ import io.cucumber.java.en.Given;
 
 import io.cucumber.java.en.When;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import pages.SimPages;
 import utils.ConfigReader;
 
 
 import static org.junit.Assert.assertTrue;
-import static utils.DriverSim.getWebDriver;
-import static utils.ReusableMethods.sleep;
+import static utils.DriverWeb.getWebDriver;
 import static utils.ReusableMethods.waitForVisibility;
 
 

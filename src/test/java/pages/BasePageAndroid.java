@@ -97,16 +97,39 @@ public class BasePageAndroid {
     public void scrollDown(AppiumDriver driver) throws InterruptedException{
 
         Dimension dimension = driver.manage().window().getSize();
-        int start_x = (int) (dimension.width * 0.5);
+        int start_x = (int) (dimension.width * 0.);
         int start_y = (int) (dimension.height * 0.5);
 
-        int end_x = (int) (dimension.width * 0.2);
+        int end_x = (int) (dimension.width * 0.9);
         int end_y = (int) (dimension.height * 0.2);
 
         TouchAction touch = new TouchAction((PerformsTouchActions) getDriver());
         touch.press(point(start_x, start_y)).waitAction(waitOptions(Duration.ofSeconds(1))).moveTo(point(end_x, end_y)).release().perform();
-        Thread.sleep(3000);
+
     }
+    public static boolean scrollDownToBottom(AppiumDriver driver) throws InterruptedException {
+        boolean atBottom = false;
+        while (!atBottom) {
+            Dimension dimension = driver.manage().window().getSize();
+            int start_x = (int) (dimension.width * 0.5);
+            int start_y = (int) (dimension.height * 0.8);
+
+            int end_x = (int) (dimension.width * 0.5);
+            int end_y = (int) (dimension.height * 0.2);
+
+            TouchAction touch = new TouchAction((PerformsTouchActions) getDriver());
+            touch.press(PointOption.point(start_x, start_y))
+                    .waitAction(waitOptions(Duration.ofSeconds(1)))
+                    .release().perform();
+
+
+            // Check if you have reached the bottom of the page
+            // You may need to adjust this condition based on your app's behavior
+        }
+        return atBottom;
+    }
+
+
 
     public int extractHours(String text) {
         if (text != null && !text.isEmpty()) {

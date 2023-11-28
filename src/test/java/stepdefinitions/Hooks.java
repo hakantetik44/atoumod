@@ -9,14 +9,14 @@ import org.openqa.selenium.WebDriver;
 import io.appium.java_client.AppiumDriver;
 
 
+import utils.ConfigReader;
 import utils.DriverMobile;
-import utils.DriverSim;
+import utils.DriverWeb;
 
 
 import java.net.MalformedURLException;
 
 import static utils.DriverMobile.quitDriver;
-import static utils.DriverSim.quitWebDriver;
 
 
 public class Hooks {
@@ -31,20 +31,15 @@ public class Hooks {
         return webDriver;
     }
 
-    @Before("@smokeAndroid")
+    @Before("@Mobile")
     public void setUpMobile() throws MalformedURLException, InterruptedException {
-
+        getDriver();
     }
 
-    @Before("web")
+    @Before("@webOrnikar")
     public void setUpWeb() throws InterruptedException {
 
-
-
-
-
     }
-
 
 
     @After("@smokeAndroid")
@@ -60,14 +55,14 @@ public class Hooks {
             scenario.attach(screenshot, "image/png", "screenshot");
         }
 
-      quitDriver();
+        quitDriver();
     }
 
     @After("@web")
     public void tearDownWeb(Scenario scenario) {
         if (scenario.isFailed()) {
             byte[] screenshot;
-            WebDriver driver = DriverSim.getWebDriver();
+            WebDriver driver = DriverWeb.getWebDriver();
             if (driver != null && driver instanceof TakesScreenshot) {
                 screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
             } else {
@@ -76,7 +71,7 @@ public class Hooks {
             scenario.attach(screenshot, "image/png", "screenshot");
         }
 
-    // quitWebDriver();
+        // quitWebDriver();
     }
 }
 

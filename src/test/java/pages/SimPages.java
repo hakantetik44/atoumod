@@ -5,12 +5,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import static utils.DriverSim.getWebDriver;
+import static utils.DriverWeb.getWebDriver;
 
 public class SimPages {
 
     public SimPages() {
         PageFactory.initElements(getWebDriver(), this);
+
     }
 
     @FindBy(xpath = "//h2[normalize-space()='Horaires']")

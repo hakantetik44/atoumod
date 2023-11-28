@@ -8,9 +8,9 @@ import java.time.Duration;
 
 
 
-public class DriverSim {
+public class DriverWeb {
     private static WebDriver driver;
-    private DriverSim() {
+    private DriverWeb() {
         // Private constructor to prevent instantiation from outside
     }
     public static WebDriver getWebDriver() {

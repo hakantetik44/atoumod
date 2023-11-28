@@ -20,7 +20,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.function.Function;
 
-import static utils.DriverSim.getWebDriver;
+import static utils.DriverWeb.getWebDriver;
 
 public class ReusableMethods {
 
